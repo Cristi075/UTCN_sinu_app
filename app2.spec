@@ -6,7 +6,6 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['D:\\Libs\\Documents\\PyCharm workspace\\SinuDataExtractor'],
              binaries=[],
              datas=[
                 ('assets', 'assets'),
