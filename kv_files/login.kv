@@ -1,0 +1,41 @@
+<LoginScreen>:
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 0
+
+        Image:
+            id: logo
+            size_hint: (1,0.7)
+            source: 'assets/logo_inv.png'
+
+        Label:
+            size_hint: (1,0.04)
+            font_size: 20
+            text: 'Sinu data extractor'
+
+        Label:
+            text: 'V0.2.5 alpha - New UI, Tons of new bugs'
+            size_hint: (1,0.02)
+
+        TextInput:
+            id: username
+            write_tab: False
+            multiline: False
+            size_hint: (1,0.07)
+            foreground_color: (200,0,0,1)
+            hint_text: 'Username'
+
+        TextInput:
+            id: password
+            write_tab: False
+            multiline: False
+            size_hint: (1,0.07)
+            foreground_color: (200,0,0,1)
+            hint_text: 'Password'
+            password: True
+
+        Button:
+            size_hint: (1,0.1)
+            text: 'Log in'
+            on_release: root.on_click()

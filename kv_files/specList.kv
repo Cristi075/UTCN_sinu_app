@@ -1,0 +1,34 @@
+<SelectableLabel>:
+    # Draw a background to indicate selection
+    canvas.before:
+        Color:
+            rgba: (0, 0.9, 0.1, 0.3) if not self.selected else (0.3, 0.1, 0.1, 0.4)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<RV@RecycleView>:
+    viewclass: 'SelectableLabel'
+    SelectableRecycleBoxLayout:
+        id: container
+        default_size: None, dp(56)
+        default_size_hint: 1, None
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: 'vertical'
+        multiselect: True
+        touch_multiselect: True
+
+<SpecSelectScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 0
+
+        RV:
+            id: list
+            size_hint: (1,0.9)
+
+        Button:
+            size_hint: (1,0.1)
+            text: 'Next'
+            on_release: root.on_click()
