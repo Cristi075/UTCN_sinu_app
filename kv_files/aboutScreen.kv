@@ -1,0 +1,36 @@
+<AboutLabel@Label>
+    background_color: 0,1,0,0.3
+    canvas.before:
+        Color:
+            rgba: self.background_color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<TextView@RecycleView>:
+    viewclass: 'AboutLabel'
+    RecycleBoxLayout:
+        id: container
+        default_size: None, dp(30)
+        default_size_hint: 1, None
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: 'vertical'
+
+<AboutScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 1
+
+        Image:
+            id: logo
+            size_hint: (1,0.5)
+            source: 'assets/logo_inv2.png'
+
+        TextView:
+            id: list
+
+        Button:
+            size_hint: (1, 0.1)
+            text: 'Go back'
+            on_release: root.back()

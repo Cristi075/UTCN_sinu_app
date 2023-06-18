@@ -1,0 +1,64 @@
+<MyLabel@Label>
+    background_color: 0,0,0,1
+    canvas.before:
+        Color:
+            rgba: self.background_color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<Entry@BoxLayout>
+    key: ''
+    value: ''
+    MyLabel:
+        size_hint: (0.7,1)
+        background_color: 0.4, 0.4, 0.8, 0.8
+        text: str(self.parent.key)
+    MyLabel:
+        size_hint: (0.3,1)
+        background_color: 0,1,0,0.4
+        text: str(self.parent.value)
+
+<ListContainer@RecycleView>:
+    viewclass: 'Entry'
+    RecycleBoxLayout:
+        id: table
+        default_size: None, dp(20)
+        default_size_hint: 1, None
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: 'vertical'
+
+<TableViewScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 0
+
+
+        Button:
+            text: 'Logout'
+            on_release: root.logout()
+            size_hint: (1,0.1)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 0
+            size_hint: (1, 0.05)
+
+            MyLabel:
+                background_color: 0.3, 0.3, 0.6, 0.7
+                text: 'Subject'
+                size_hint: (0.7, 1)
+            MyLabel:
+                background_color: 0.2, 0.2, 0.4, 0.5
+                text: 'Grade'
+                size_hint: (0.3, 1)
+
+        ListContainer:
+            size_hint: (1, 0.85)
+            id: table
+
+        Button:
+            text: 'Refresh'
+            on_release: root.refresh()
+            size_hint: (1,0.1)

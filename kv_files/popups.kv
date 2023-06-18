@@ -1,0 +1,30 @@
+<InfoPopup@BoxLayout>:
+    orientation: 'vertical'
+
+	Label:
+		text: root.text
+
+    Button:
+        size_hint: (1,0.1)
+        text: 'OK'
+        on_release: root.callback()
+
+<ConfirmPopup@BoxLayout>:
+    orientation: 'vertical'
+
+	Label:
+		text: root.text
+
+	Label:
+		text: root.text2
+
+	Label:
+	    text: root.text3
+
+    BoxLayout:
+        Button:
+            text: 'Yes'
+            on_release: root.callback_yes()
+        Button:
+            text: 'No'
+            on_release: root.callback_no()
